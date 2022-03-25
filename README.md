@@ -1,3 +1,22 @@
+# To - Do
+5.) Let’s put it all together. Since our NameEntry component can’t talk directly to Greeter, we need App to pass a function to NameEntry which allows us to update App’s state. App’s state is then passed down to Greeter.
+
+NameEntry should be able to save the name to it’s parent’s state when Set Name is clicked via a callback passed to NameEntry.
+
+6.) Let’s modify our top level component to track an array of names instead of just one name. We will need to update Greeter as well to render the array of names correctly.
+
+eg:
+* ["Matt"] → Hello Matt
+* ["Matt", "Joe"] → Hello Matt and Joe
+* ["Matt’, "Joe’, "Sarah"] → Hello Matt, Joe and Sarah
+
+7.) Removing Names
+Let’s add the ability to remove names with a new NameList component. NameList will render each name with a button that when clicked removes that name. (by invoking a callback passed from the parent component)
+
+Some functions you might want to use to cleanly remove the specific value from state without directly modifying the array are [].filter or [].slice.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
