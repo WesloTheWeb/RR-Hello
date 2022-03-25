@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Greeter from "./components/Greeter/Greeter";
+import NameEntry from "./components/NameEntry/NameEntry";
+import { QueryContext } from "./context/QueryContext";
 
 function App() {
+
+  const [userName, setUserName] = useState([]);
+
+  const providerValues = React.useMemo(() => ({
+    userName, setUserName
+  }), [userName]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        Hello from App.js. Please make a new component named Greeter.js that renders a paragraph element (p) with the text "Hello World".
+      </div>
+      <QueryContext.Provider value={providerValues}>
+        <NameEntry />
+        <Greeter userName={providerValues} />
+      </QueryContext.Provider >
+    </>
   );
 }
 
